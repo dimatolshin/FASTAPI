@@ -1,7 +1,3 @@
-from typing import List
-import uvicorn
-from pydantic import BaseModel, Field
-
 from fastapi import FastAPI, Form
 from fastapi.responses import FileResponse
 

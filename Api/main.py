@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Body, status, Depends
 from fastapi.responses import JSONResponse, FileResponse
-from MainApi.SQLAlchemi.database import *
+from SQLAlchemi.database import *
+
 
 Base.metadata.create_all(bind=engine)
 
