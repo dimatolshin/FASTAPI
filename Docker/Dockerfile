@@ -4,4 +4,6 @@ COPY /MainApi /project
 
 WORKDIR /project
 
-EXPOSE 
+RUN pip install -r requirements.txt
+
+CMD ["uvicorn", "main:app", "--reload"]
