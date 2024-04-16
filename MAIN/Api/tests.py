@@ -1,5 +1,5 @@
 from main import app
-from SQLAlchemi.database import *
+from MAIN.SQLAlchemi.database import *
 from fastapi.testclient import TestClient
 
 Base.metadata.create_all(bind=engine)

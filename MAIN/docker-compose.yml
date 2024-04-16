@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  server:
+    build: ./MAIN
+    ports:
+      - 8000:8000
+
+
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_DB: lion
+      POSTGRES_USER: lion
+      POSTGRES_PASSWORD: lion
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
