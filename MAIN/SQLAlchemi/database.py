@@ -20,13 +20,13 @@ class Person(Base):
 Base.metadata.create_all(bind=engine)
 
 db = Session()
-# tom = Person(name="Tom", age=38)
-# bob = Person(name="Bob", age=42)
-# sam = Person(name="Sam", age=25)
-# db.add(tom)
-# db.add(bob)
-# db.add(sam)
-# db.commit()
+tom = Person(name="Tom", age=38)
+bob = Person(name="Bob", age=42)
+sam = Person(name="Sam", age=25)
+db.add(tom)
+db.add(bob)
+db.add(sam)
+db.commit()
 
 # people = db.query(Person).all()
 # for p in people:

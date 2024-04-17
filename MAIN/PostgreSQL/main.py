@@ -17,9 +17,9 @@ try:
                        ('HOMA',69);""")
         print("values are fulling")
 
-    with connection.cursor() as cursor:
-        cursor.execute("""SELECT * FROM users ;""")
-        print(cursor.fetchall())
+    # with connection.cursor() as cursor:
+    #     cursor.execute("""SELECT * FROM users ;""")
+    #     print(cursor.fetchall())
 
 
 
@@ -27,7 +27,7 @@ try:
 except Exception as e:
     print(e)
 
-finally:
-    if connection:
-        connection.close()
-        print("connection close")
+# finally:
+#     if connection:
+#         connection.close()
+#         print("connection close")
