@@ -1,9 +1,18 @@
+import os
+
 from sqlalchemy import create_engine, UniqueConstraint
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
 
-engine = create_engine("postgresql+psycopg2://lion:lion@localhost/lion")
+load_dotenv()
+name = os.getenv('name')
+password = os.getenv('password')
+host = os.getenv('host') if not os.getenv('DEBUG') else 'db'
+db_name = os.getenv('db_name')
+
+engine = create_engine(f"postgresql+psycopg2://{name}:{password}@{host}/{db_name}")
 
 Session = sessionmaker(autoflush=False, bind=engine)
 Base = declarative_base()
@@ -16,6 +25,7 @@ class Person(Base):
     name = Column(String)
     age = Column(Integer)
     UniqueConstraint(name)
+
 
 Base.metadata.create_all(bind=engine)
 

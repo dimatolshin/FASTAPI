@@ -2,9 +2,15 @@ version: '3.9'
 
 services:
   server:
-    build: ./MAIN
+    image: my_server
+    build: .
+    env_file:
+      - .env
     ports:
-      - 8000:8000
+      - 8001:8000
+    depends_on:
+      - db
+
 
 
   db:
@@ -16,8 +22,9 @@ services:
       POSTGRES_USER: lion
       POSTGRES_PASSWORD: lion
 
+
   adminer:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 8080:8000
